@@ -41,26 +41,19 @@ function initHeroSlider(){
   dots.forEach((dot,i)=>{ dot.onclick=()=>{ index=i; showSlide(i); } })
 }
 
-// ========== PRODUK SLIDER ==========
-function initProdukSlider(){
-  const sliderProduk = document.getElementById("sliderProduk");
+function initProdukSlider() {
+  const slider = document.getElementById("sliderProduk");
 
-  window.slideLeft = function(){ sliderProduk.scrollLeft -= 260; }
-  window.slideRight = function(){ sliderProduk.scrollLeft += 260; }
-
-  setInterval(()=>{
-    sliderProduk.scrollLeft += 260;
-    if(sliderProduk.scrollLeft + sliderProduk.clientWidth >= sliderProduk.scrollWidth){
-      sliderProduk.scrollLeft = 0;
-    }
-  },3000);
-
-  // Tombol See All Product scroll ke section Produk
-  const seeAllBtn = document.getElementById("seeAllBtn");
-  if(seeAllBtn){
-    seeAllBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      document.getElementById('produk-section').scrollIntoView({ behavior: 'smooth' });
-    });
+  window.slideLeft = function(){
+    slider.scrollBy({ left: -250, behavior: 'smooth' });
   }
+
+  window.slideRight = function(){
+    slider.scrollBy({ left: 250, behavior: 'smooth' });
+  }
+}
+
+// Panggil fungsi ini setelah produk.html dimuat
+initProdukSlider();
+
 }
