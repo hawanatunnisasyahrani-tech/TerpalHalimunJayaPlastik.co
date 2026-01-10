@@ -117,31 +117,32 @@
 </head>
 <body>
 
-    <header>
-        <div class="top-bar">
-            <div>Brownies CHoco – Oleh-oleh Manis Khas Kita</div>
-            
-        </div>
-
-        <div class="search-wrapper" style="flex: 1; display: flex; justify-content: center; margin: 0 20px;">
-    <div class="search-container" style="display: flex; align-items: center; background: #f4f4f4; border-radius: 30px; padding: 5px 15px; width: 100%; max-width: 400px; border: 1px solid #eee;">
-        <input type="text" id="searchInput" placeholder="Cari produk brownies..." 
-            style="border: none; background: none; outline: none; padding: 8px; width: 100%; font-size: 14px; font-family: 'Poppins', sans-serif;">
-        
-        <button onclick="searchProduct()" 
-            style="background: #4a2c2a; color: white; border: none; padding: 8px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s;">
-            Cari
-        </button>
+    <header style="width: 100%; font-family: 'Poppins', sans-serif; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;">
+    
+    <div class="top-bar" style="background: #fff; border-bottom: 1px solid #f0f0f0; padding: 10px 5%; font-size: 13px; color: #666; text-align: left;">
+        <div>Brownies CHoco – Oleh-oleh Manis Khas Kita</div>
     </div>
-</div>
-        <nav class="bottom-nav">
-            <a href="#home">Home</a>
-            <a href="#tentang">Tentang</a>
-            <a href="#produk">Produk</a>
-            <a href="#pemesanan">Pemesanan</a>
-            <a href="#kontak">Kontak</a>
-        </nav>
-    </header>
+
+    <div class="search-wrapper" style="display: flex; justify-content: center; padding: 20px 5%; background: white;">
+        <div class="search-container" style="display: flex; align-items: center; background: #fff; border: 1px solid #ddd; border-radius: 40px; padding: 5px 5px 5px 25px; width: 100%; max-width: 800px; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">
+            <input type="text" id="searchInput" placeholder="Cari produk brownies..." 
+                style="border: none; background: none; outline: none; padding: 10px 0; width: 100%; font-size: 15px; font-family: 'Poppins', sans-serif; color: #333;">
+            
+            <button onclick="searchProduct()" 
+                style="background: #4a2c2a; color: white; border: none; padding: 12px 35px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 15px; transition: 0.3s; text-transform: uppercase; margin-left: 10px;">
+                Cari
+            </button>
+        </div>
+    </div>
+
+    <nav class="bottom-nav" style="display: flex; justify-content: center; gap: 40px; padding: 15px 5%; border-top: 1px solid #f5f5f5; background: #fff;">
+        <a href="#home" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Home</a>
+        <a href="#tentang" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Tentang</a>
+        <a href="#produk" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Produk</a>
+        <a href="#pemesanan" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Pemesanan</a>
+        <a href="#kontak" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Kontak</a>
+    </nav>
+</header>
 
     <main>
         <div id="home">
