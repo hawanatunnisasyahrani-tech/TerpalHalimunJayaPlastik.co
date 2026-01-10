@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -174,33 +175,32 @@ header {
 </head>
 <body>
 
-    <header style="width: 100%; font-family: 'Poppins', sans-serif; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;">
+    <header style="width: 100%; font-family: 'Poppins', sans-serif; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; overflow-x: hidden;">
     
-    <div class="top-bar" style="background: #fff; border-bottom: 1px solid #f0f0f0; padding: 10px 5%; font-size: 13px; color: #666; text-align: left;">
-        <div>Brownies CHoco – Oleh-oleh Manis Khas Kita</div>
+    <div style="background: #fff; border-bottom: 1px solid #f0f0f0; padding: 10px 15px; font-size: 12px; color: #666; width: 100%; display: flex; justify-content: space-between; align-items: center;">
+        <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Brownies CHoco – Oleh-oleh Manis</div>
+        <div style="white-space: nowrap;">📞 0811...</div>
     </div>
 
-    <div class="search-wrapper" style="display: flex; justify-content: center; padding: 20px 5%; background: white;">
-        <div class="search-container" style="display: flex; align-items: center; background: #fff; border: 1px solid #ddd; border-radius: 40px; padding: 5px 5px 5px 25px; width: 100%; max-width: 800px; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">
-            <input type="text" id="searchInput" placeholder="Cari produk brownies..." 
-                style="border: none; background: none; outline: none; padding: 10px 0; width: 100%; font-size: 15px; font-family: 'Poppins', sans-serif; color: #333;">
-            
+    <div style="padding: 15px; width: 100%; display: flex; justify-content: center; box-sizing: border-box;">
+        <div style="display: flex; align-items: center; background: #fff; border: 1px solid #ddd; border-radius: 40px; padding: 2px 2px 2px 15px; width: 100%; max-width: 600px; box-sizing: border-box;">
+            <input type="text" id="searchInput" placeholder="Cari brownies..." 
+                style="flex: 1; border: none; outline: none; font-size: 14px; background: transparent; width: 100%; min-width: 0;">
             <button onclick="searchProduct()" 
-                style="background: #4a2c2a; color: white; border: none; padding: 12px 35px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 15px; transition: 0.3s; text-transform: uppercase; margin-left: 10px;">
+                style="background: #4a2c2a; color: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 14px; white-space: nowrap;">
                 Cari
             </button>
         </div>
     </div>
 
-    <nav class="bottom-nav" style="display: flex; justify-content: center; gap: 40px; padding: 15px 5%; border-top: 1px solid #f5f5f5; background: #fff;">
-        <a href="#home" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Home</a>
-        <a href="#tentang" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Tentang</a>
-        <a href="#produk" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Produk</a>
-        <a href="#pemesanan" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Pemesanan</a>
-        <a href="#kontak" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 15px; transition: 0.3s;">Kontak</a>
+    <nav style="display: flex; gap: 20px; padding: 10px 15px; border-top: 1px solid #f5f5f5; background: #fff; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap;">
+        <a href="#home" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 14px;">Home</a>
+        <a href="#tentang" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 14px;">Tentang</a>
+        <a href="#produk" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 14px;">Produk</a>
+        <a href="#pemesanan" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 14px;">Pemesanan</a>
+        <a href="#kontak" style="text-decoration: none; color: #4a2c2a; font-weight: 600; font-size: 14px;">Kontak</a>
     </nav>
 </header>
-
     <main>
         <div id="home">
     <section class="hero" style="padding: 0;">
