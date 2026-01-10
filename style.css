@@ -1,61 +1,147 @@
-/* HERO SECTION */
+/* --- RESET & GLOBAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+}
+
+/* --- NAVBAR 2 TINGKAT (ALA LAPIS BOGOR) --- */
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Baris Atas - Slogan & Info */
+.top-bar {
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 8px 5%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #555;
+}
+
+.top-info span {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+/* Baris Utama - Logo, Search, Menu */
+.main-navbar {
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo h2 {
+    color: #4a1f51; /* Warna ungu tua */
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+/* Search Bar Tengah */
+.search-container {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    max-width: 500px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+}
+
+.btn-search {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #4a1f51;
+    color: white;
+    border: none;
+    padding: 6px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Menu di Bawah Search (opsional jika ingin persis) */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a1f51;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* --- HERO SECTION --- */
 .hero {
-  position: relative;
-  width: 100%;
-  height: 90vh; /* Sedikit lebih tinggi agar lebih megah */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Teks nanti di kiri, bukan di tengah */
-  margin-top: 0; /* Kita akan pakai sticky/fixed navbar */
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Tinggi proporsional */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
-/* Hero Image - Dibuat Full Width */
 .hero-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Gambar akan memenuhi layar tanpa gepeng */
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 
-/* Overlay - Dibuat lebih halus (gradasi) */
+/* Overlay Putih Transparan (Mirip web Lapis Bogor) */
 .hero-overlay {
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%; 
-  height: 100%;
-  /* Gradasi hitam transparan di kiri agar teks mudah dibaca */
-  background: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
-  z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradasi dari putih ke transparan agar foto tetap terlihat segar */
+    background: linear-gradient(to right, rgba(255,255,255,0.7), transparent);
+    z-index: 2;
 }
 
-/* Konten Teks (Tombol & Judul) */
 .hero-text {
-  position: relative;
-  z-index: 3;
-  padding-left: 10%; /* Posisi teks agak ke kiri seperti Lapis Bogor */
-  text-align: left;
+    position: relative;
+    z-index: 3;
+    padding-left: 10%;
+    max-width: 500px;
 }
 
-/* Tombol Pesan - Disesuaikan warnanya (misal ungu/cokelat tua) */
 .hero-text .btn {
-  background: #632b6c; /* Warna ungu khas talas atau cokelat brownies */
-  color: white;
-  padding: 15px 35px;
-  border-radius: 50px; /* Sangat bulat */
-  font-weight: 600;
-  text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: 0.3s;
+    background: #4a1f51; /* Ganti ke warna identitas brand kamu */
+    color: white;
+    padding: 15px 35px;
+    border-radius: 5px; /* Lapis bogor pakai kotak agak tumpul, bukan bulat oval */
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
 }
 
 .hero-text .btn:hover {
-  background: #4a1f51;
-  transform: translateY(-3px);
-}
+    background: #632b6c;
+    transform: scale(1.05);
 }
