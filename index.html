@@ -7,79 +7,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brownies UMKM</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth}
-body{background:#faf7f2;color:#3a2a1a}
+body{background:#fffaf4;color:#3b2a1a}
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 nav{
 position:fixed;
-top:0;
-width:100%;
-background:#2b1b12;
-padding:15px 8%;
+top:0;left:0;width:100%;
+padding:14px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+background:rgba(255,250,244,0.9);
+backdrop-filter:blur(10px);
 z-index:999;
+box-shadow:0 2px 15px rgba(0,0,0,.05)
 }
-nav h2{color:#f5c16c}
-.nav-links{display:flex;align-items:center}
-nav a{color:white;text-decoration:none;margin-left:25px;font-weight:500}
-nav a:hover{color:#f5c16c}
-.menu-toggle{display:none;font-size:28px;color:white;cursor:pointer}
+nav h2{color:#c48a3a;font-weight:700}
+nav .menu{display:flex;gap:25px}
+nav a{text-decoration:none;color:#3b2a1a;font-weight:500}
+nav a:hover{color:#c48a3a}
 
-/.hero{
+.menu-toggle{display:none;font-size:26px;cursor:pointer}
+
+/* ================= HERO ================= */
+.hero{
 min-height:100vh;
 position:relative;
-overflow:hidden;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+overflow:hidden;
 }
 
 .slider-container{
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:1;
+top:0;left:0;width:100%;height:100%;
 }
 
-.slider{
-width:100%;
-height:100%;
-position:relative;
-}
-
-.slide{
+.slider img{
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
+width:100%;height:100%;
 object-fit:cover;
 opacity:0;
 transition:1s;
-filter:brightness(60%);
+filter:brightness(65%);
 }
 
-.slide.active{
-opacity:1;
-}
+.slider img.active{opacity:1}
 
 .hero-text{
 position:relative;
 z-index:2;
 max-width:800px;
 padding:20px;
+color:white;
 }
 
-.nav-slider{
+.hero-text h1{font-size:52px;font-weight:700}
+.hero-text p{margin:20px 0;font-size:18px}
+
+.btn{
+display:inline-block;
+background:linear-gradient(135deg,#f3c77a,#c48a3a);
+color:white;
+padding:12px 32px;
+border-radius:30px;
+font-weight:600;
+text-decoration:none;
+transition:.3s;
+}
+.btn:hover{transform:scale(1.05)}
+
+.dots{
 position:absolute;
 bottom:25px;
 left:50%;
@@ -88,96 +92,59 @@ display:flex;
 gap:10px;
 z-index:3;
 }
-
 .dot{
-width:12px;
-height:12px;
-border-radius:50%;
-background:#fff;
-opacity:.4;
-cursor:pointer;
+width:12px;height:12px;border-radius:50%;
+background:white;opacity:.4;cursor:pointer
 }
+.dot.active{opacity:1;background:#f3c77a}
 
-.dot.active{
-opacity:1;
-background:#f5c16c;
-}
-
-.hero-text{max-width:700px}
-.hero-text h1{font-size:48px;color:#f5c16c}
-.hero-text p{margin:20px 0;line-height:1.7;color:#f5e9df}
-
-.btn{
-display:inline-block;
-background:#f5c16c;
-color:#2b1b12;
-padding:12px 30px;
-border-radius:30px;
-font-weight:600;
-text-decoration:none;
-transition:.3s;
-}
-.btn:hover{background:white}
-
-/* SECTION */
+/* ================= SECTION ================= */
 section{padding:100px 8%}
 .title{text-align:center;margin-bottom:50px}
-.title h2{font-size:34px;color:#2b1b12}
+.title h2{font-size:36px;color:#c48a3a}
 
-/* ABOUT */
+/* ================= ABOUT ================= */
 .about{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:center}
-.about img{width:100%;border-radius:20px}
+.about img{width:100%;border-radius:25px}
 
-/* PRODUCTS */
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
+/* ================= PRODUCTS ================= */
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px}
+
 .card{
 background:white;
-border-radius:18px;
+border-radius:22px;
 overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 transition:.3s;
 }
-.card:hover{transform:translateY(-6px)}
+.card:hover{transform:translateY(-8px)}
 .card img{width:100%;height:220px;object-fit:cover}
-.card .box{padding:18px}
-.price{color:#c47a00;font-weight:600}
+.card .box{padding:18px;text-align:center}
+.price{color:#c48a3a;font-weight:600;margin:8px 0}
 
-/* ORDER */
+/* ================= ORDER ================= */
 .order-box{
-max-width:700px;
-margin:auto;
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+max-width:700px;margin:auto;
+background:white;padding:45px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 text-align:center;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
-background:#2b1b12;
-color:white;
+background:#f3e4cf;
+color:#3b2a1a;
 text-align:center;
 padding:25px;
-margin-top:60px;
 }
 
-/* HP MODE */
+/* ================= RESPONSIVE ================= */
 @media(max-width:768px){
-.nav-links{
-position:absolute;
-top:65px;
-left:0;
-width:100%;
-background:#2b1b12;
-flex-direction:column;
-display:none;
-}
-.nav-links a{margin:15px 0}
-.nav-links.active{display:flex}
+.hero-text h1{font-size:34px}
+nav .menu{display:none;flex-direction:column;position:absolute;top:60px;right:8%;background:white;padding:20px;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,.1)}
+nav .menu.active{display:flex}
 .menu-toggle{display:block}
-.hero-text h1{font-size:36px}
-.slider{height:280px}
 }
 </style>
 </head>
@@ -187,51 +154,45 @@ display:none;
 <!-- NAVBAR -->
 <nav>
 <h2>Brownies UMKM</h2>
-<div class="menu-toggle" id="menu-toggle">☰</div>
-<div class="nav-links" id="nav-links">
+<div class="menu" id="menu">
 <a href="#home">Home</a>
 <a href="#about">Tentang Kami</a>
 <a href="#produk">Produk</a>
 <a href="#order">Pemesanan</a>
 <a href="#kontak">Kontak</a>
 </div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
 <!-- HOME -->
 <div class="hero" id="home">
 
-  <div class="slider-container">
-    <div class="slider">
-      <img src="brownies1.jpg" class="slide active">
-      <img src="brownies2.jpg" class="slide">
-      <img src="brownies3.jpg" class="slide">
-      <img src="brownies4.jpg" class="slide">
-      <img src="brownies5.jpg" class="slide">
-    </div>
+<div class="slider-container">
+<div class="slider">
+<img src="brownies1.jpg" class="active">
+<img src="brownies2.jpg">
+<img src="brownies3.jpg">
+<img src="brownies4.jpg">
+<img src="brownies5.jpg">
+</div>
 
-    <div class="nav-slider">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
-
-  <div class="hero-text">
-    <h1>Brownies Premium Homemade</h1>
-    <p>Kami menghadirkan brownies padat dan lembut dengan bahan berkualitas, rasa coklat khas, cocok untuk camilan dan hadiah.</p>
-    <a class="btn" target="_blank"
-    href="https://wa.me/6285216919157?text=Halo%20saya%20ingin%20memesan%20brownies">
-    Pesan Sekarang</a>
-
+<div class="dots">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
 </div>
 
 <div class="hero-text">
 <h1>Brownies Premium Homemade</h1>
-<p>Kami menghadirkan brownies padat dan lembut dengan bahan berkualitas, rasa coklat khas, cocok untuk camilan, hadiah, dan berbagai momen spesial.</p>
-<a class="btn" target="_blank" href="https://wa.me/6285216919157?text=Halo%20saya%20ingin%20memesan%20brownies">Pesan Sekarang</a>
+<p>Kami menghadirkan brownies padat dan lembut dengan bahan berkualitas, rasa coklat khas, cocok untuk camilan dan hadiah.</p>
+<a class="btn" target="_blank"
+href="https://wa.me/6285216919157?text=Halo%20saya%20ingin%20memesan%20brownies">
+Pesan Sekarang</a>
 </div>
+
 </div>
 
 <!-- TENTANG -->
@@ -239,8 +200,8 @@ display:none;
 <div class="title"><h2>Tentang Kami</h2></div>
 <div class="about">
 <div>
-<p><b>Brownies UMKM</b> adalah usaha rumahan yang menjual brownies padat premium dengan berbagai varian rasa.</p>
-<p>Website ini dibuat untuk memudahkan pelanggan melihat katalog dan memesan langsung melalui WhatsApp.</p>
+<p><b>Brownies UMKM</b> adalah usaha rumahan yang memproduksi brownies padat berkualitas premium dengan rasa khas.</p>
+<p>Digitalisasi ini bertujuan membantu UMKM memperluas pemasaran dan memudahkan pelanggan melakukan pemesanan online.</p>
 <p><b>Jam Operasional:</b><br>Senin – Sabtu (08.00 – 20.00 WIB)</p>
 <p><b>Kontak:</b><br>WhatsApp: 0852-1691-9157</p>
 </div>
@@ -251,17 +212,19 @@ display:none;
 <!-- PRODUK -->
 <section id="produk">
 <div class="title"><h2>Katalog Produk</h2></div>
+
 <div class="products">
 
-<!-- 8 PRODUK -->
-<div class="card"><img src="produk1.jpg"><div class="box"><h3>Brownies Original Padet</h3><p>Brownies coklat padat khas.</p><p class="price">Rp 25.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
-<div class="card"><img src="produk2.jpg"><div class="box"><h3>Brownies Keju</h3><p>Taburan keju melimpah.</p><p class="price">Rp 30.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
-<div class="card"><img src="produk3.jpg"><div class="box"><h3>Brownies Kacang</h3><p>Topping kacang renyah.</p><p class="price">Rp 30.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
-<div class="card"><img src="produk4.jpg"><div class="box"><h3>Brownies Choco Chips</h3><p>Choco chips premium.</p><p class="price">Rp 32.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
-<div class="card"><img src="produk5.jpg"><div class="box"><h3>Brownies Lumer</h3><p>Isian coklat lumer.</p><p class="price">Rp 35.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
-<div class="card"><img src="produk6.jpg"><div class="box"><h3>Brownies Matcha</h3><p>Perpaduan matcha & coklat.</p><p class="price">Rp 32.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
-<div class="card"><img src="produk7.jpg"><div class="box"><h3>Brownies Tiramisu</h3><p>Aroma tiramisu lembut.</p><p class="price">Rp 33.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
-<div class="card"><img src="produk8.jpg"><div class="box"><h3>Special Box</h3><p>Cocok untuk hadiah.</p><p class="price">Rp 50.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
+<!-- PRODUK 1 - 8 -->
+<!-- GANTI FOTO SAJA -->
+<div class="card"><img src="produk1.jpg"><div class="box"><h3>Brownies Original Padat</h3><p class="price">Rp 25.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
+<div class="card"><img src="produk2.jpg"><div class="box"><h3>Brownies Keju</h3><p class="price">Rp 30.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
+<div class="card"><img src="produk3.jpg"><div class="box"><h3>Brownies Kacang</h3><p class="price">Rp 30.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
+<div class="card"><img src="produk4.jpg"><div class="box"><h3>Brownies Choco Chips</h3><p class="price">Rp 32.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
+<div class="card"><img src="produk5.jpg"><div class="box"><h3>Brownies Lumer</h3><p class="price">Rp 35.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
+<div class="card"><img src="produk6.jpg"><div class="box"><h3>Brownies Matcha</h3><p class="price">Rp 32.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
+<div class="card"><img src="produk7.jpg"><div class="box"><h3>Brownies Tiramisu</h3><p class="price">Rp 33.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
+<div class="card"><img src="produk8.jpg"><div class="box"><h3>Special Box</h3><p class="price">Rp 50.000</p><a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan</a></div></div>
 
 </div>
 </section>
@@ -270,9 +233,11 @@ display:none;
 <section id="order">
 <div class="title"><h2>Sistem Pemesanan</h2></div>
 <div class="order-box">
-<p>Pemesanan dilakukan melalui WhatsApp dengan format:</p>
-<p><b>Nama / Produk / Jumlah / Alamat</b></p>
-<a class="btn" target="_blank" href="https://wa.me/6285216919157">Pesan via WhatsApp</a>
+<p>Pemesanan dilakukan secara online melalui WhatsApp.</p>
+<p><b>Format:</b> Nama / Produk / Jumlah / Alamat</p>
+<a class="btn" target="_blank"
+href="https://wa.me/6285216919157?text=Halo%20saya%20ingin%20memesan:%0ANama:%0AProduk:%0AJumlah:%0AAlamat:">
+Pesan via WhatsApp</a>
 </div>
 </section>
 
@@ -282,7 +247,8 @@ display:none;
 <p style="text-align:center">
 <b>Brownies UMKM</b><br>
 WhatsApp: 0852-1691-9157<br>
-Jam Operasional: Senin – Sabtu (08.00 – 20.00 WIB)
+Jam Operasional: Senin – Sabtu (08.00 – 20.00 WIB)<br>
+Alamat: (isi alamat UMKM)
 </p>
 </section>
 
@@ -291,34 +257,30 @@ Jam Operasional: Senin – Sabtu (08.00 – 20.00 WIB)
 </footer>
 
 <script>
-/* NAVBAR */
-const toggle=document.getElementById("menu-toggle");
-const nav=document.getElementById("nav-links");
-toggle.addEventListener("click",()=>{nav.classList.toggle("active")});
+let slides = document.querySelectorAll(".slider img");
+let dots = document.querySelectorAll(".dot");
+let index = 0;
 
-/* SLIDER */
-let slides=document.querySelectorAll(".slide");
-let dots=document.querySelectorAll(".dot");
-let i=0;
-
-function showSlide(n){
+function showSlide(i){
 slides.forEach(s=>s.classList.remove("active"));
 dots.forEach(d=>d.classList.remove("active"));
-slides[n].classList.add("active");
-dots[n].classList.add("active");
-i=n;
+slides[i].classList.add("active");
+dots[i].classList.add("active");
 }
 
-dots.forEach((dot,index)=>{
-dot.addEventListener("click",()=>showSlide(index));
-});
-
 setInterval(()=>{
-i++; if(i>=slides.length){i=0}
-showSlide(i);
-},3000);
+index = (index+1)%slides.length;
+showSlide(index);
+},4000);
+
+dots.forEach((dot,i)=>{
+dot.onclick=()=>{index=i;showSlide(i);}
+})
+
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
 </script>
 
 </body>
 </html>
-
