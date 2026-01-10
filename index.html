@@ -37,6 +37,64 @@
 
         section { padding: 100px 5%; min-height: 500px; border-bottom: 1px solid #eee; }
         footer { background: #4a2c2a; color: white; text-align: center; padding: 30px; }
+        /* --- PERBAIKAN UNTUK TAMPILAN HP (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    /* Navbar supaya tidak ketimpuk */
+    .main-navbar {
+        flex-direction: column; /* Logo dan Search jadi atas-bawah */
+        gap: 15px;
+        padding: 10px 5%;
+    }
+
+    .search-container {
+        width: 100%; /* Search bar jadi full lebar hp */
+        max-width: none;
+    }
+
+    .bottom-nav {
+        overflow-x: auto; /* Menu bisa di-geser ke samping (swipe) */
+        white-space: nowrap;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+        gap: 15px;
+    }
+
+    .nav-right {
+        display: none; /* Sembunyikan cart/masuk di hp agar ringkas (opsional) */
+    }
+
+    /* Perbaikan Tulisan Hero agar rapi */
+    .hero {
+        height: 60vh; /* Tinggi hero lebih pendek di hp */
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-overlay {
+        background: rgba(255, 255, 255, 0.7); /* Overlay putih merata di hp */
+    }
+
+    .hero-content {
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 28px; /* Tulisan judul lebih kecil di hp */
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 14px; /* Tulisan deskripsi lebih kecil */
+        margin-bottom: 20px;
+    }
+
+    .btn-order {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
     </style>
 </head>
 <body>
@@ -75,18 +133,18 @@
 
     <main>
         <div id="home">
-            <section class="hero" style="padding: 0;">
-                <img src="produk1.jpg" alt="Brownies Banner" class="hero-img">
-                <div class="hero-overlay"></div>
-                <div class="hero-content">
-                    <h1>Brownies Premium <br> Nyoklat Banget!</h1>
-                    <p>Dibuat dengan bahan pilihan, menghasilkan tekstur lembut yang lumer di mulut.</p>
-                    <a href="https://wa.me/6285216919157?text=Halo%20Brownies%20UMKM,%20saya%20mau%20pesan" class="btn-order" target="_blank">
-                        Pesan Sekarang
-                    </a>
-                </div>
-            </section>
+    <section class="hero" style="padding: 0;">
+        <img src="produk1.jpg" alt="Brownies Banner" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 style="font-weight: 700;">Brownies Premium <br> <span style="color: #d4a373;">Nyoklat Banget!</span></h1>
+            <p>Dibuat dengan bahan pilihan, menghasilkan tekstur lembut yang lumer di mulut.</p>
+            <a href="https://wa.me/6285216919157?text=Halo%20Brownies%20UMKM..." class="btn-order" target="_blank">
+                Pesan Sekarang
+            </a>
         </div>
+    </section>
+</div>
 
             <section id="tentang" style="padding: 80px 5%; background-color: #fff;">
     <div style="max-width: 800px; margin: 0 auto; text-align: center;">
