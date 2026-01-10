@@ -1,4 +1,4 @@
-// Toggle menu mobile
+// Toggle Navbar Mobile
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
@@ -9,7 +9,6 @@ async function loadSection(id, file){
   const html = await res.text();
   document.getElementById(id).innerHTML = html;
 
-  // Inisialisasi slider setelah section dimuat
   if(id === "home-section") initHeroSlider(); // init slider hero
   if(id === "produk-section") initProdukSlider(); // init produk slider
 }
@@ -28,8 +27,8 @@ function initHeroSlider(){
   let index = 0;
 
   function showSlide(i){
-    slides.forEach(s => s.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
+    slides.forEach(s=>s.classList.remove("active"));
+    dots.forEach(d=>d.classList.remove("active"));
     slides[i].classList.add("active");
     dots[i].classList.add("active");
   }
@@ -37,24 +36,32 @@ function initHeroSlider(){
   setInterval(()=>{
     index = (index+1)%slides.length;
     showSlide(index);
-  }, 4000);
+  },4000);
 
-  dots.forEach((dot,i)=>{
-    dot.onclick = () => { index=i; showSlide(i); }
-  });
+  dots.forEach((dot,i)=>{ dot.onclick=()=>{ index=i; showSlide(i); } })
 }
 
 // ========== PRODUK SLIDER ==========
-function initProdukSlider() {
-  const slider = document.getElementById("sliderProduk");
-  if(!slider) return; // jaga-jaga kalau slider belum dimuat
+function initProdukSlider(){
+  const sliderProduk = document.getElementById("sliderProduk");
 
-  window.slideLeft = function(){
-    slider.scrollBy({ left: -250, behavior: 'smooth' });
-  }
+  window.slideLeft = function(){ sliderProduk.scrollLeft -= 260; }
+  window.slideRight = function(){ sliderProduk.scrollLeft += 260; }
 
-  window.slideRight = function(){
-    slider.scrollBy({ left: 250, behavior: 'smooth' });
+  setInterval(()=>{
+    sliderProduk.scrollLeft += 260;
+    if(sliderProduk.scrollLeft + sliderProduk.clientWidth >= sliderProduk.scrollWidth){
+      sliderProduk.scrollLeft = 0;
+    }
+  },3000);
+
+  // Tombol See All Product scroll ke section Produk
+  const seeAllBtn = document.getElementById("seeAllBtn");
+  if(seeAllBtn){
+    seeAllBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('produk-section').scrollIntoView({ behavior: 'smooth' });
+    });
   }
 }
 
