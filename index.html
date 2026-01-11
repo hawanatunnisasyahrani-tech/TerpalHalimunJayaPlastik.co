@@ -195,15 +195,23 @@
 </header>
 
 <main>
-    <section id="home" class="hero">
-        <img src="produk1.jpg" class="hero-img">
-        <div class="hero-text" data-aos="fade-right">
-            <h1>Premium Brownies <br> <span>Nyoklat Banget!</span></h1>
-            <p style="font-size: 16px; margin-bottom: 25px; opacity: 0.9;">Hadir dengan resep autentik dan cokelat pilihan untuk sensasi lumer di setiap gigitan.</p>
-            <a href="#produk" class="btn-gold">PESAN SEKARANG</a>
-        </div>
-    </section>
+   <section id="home" style="margin-top: 120px; height: 75vh; position: relative; display: flex; align-items: center; padding: 0 5%; overflow: hidden; border-radius: 0 0 50px 50px;">
+    <img src="produk1.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)); z-index: 2;"></div>
 
+    <div style="position: relative; z-index: 3; max-width: 600px; color: white;" data-aos="fade-right">
+        <h1 style="font-size: clamp(32px, 8vw, 56px); line-height: 1.1; margin-bottom: 20px; font-family: 'Lora', serif;">
+            Premium Brownies <br> <span style="color: #c6955b;">Nyoklat Banget!</span>
+        </h1>
+        <p style="font-size: clamp(14px, 4vw, 18px); margin-bottom: 30px; opacity: 0.9; line-height: 1.6;">
+            Hadir dengan resep autentik dan cokelat pilihan untuk sensasi lumer di setiap gigitan. Nikmati kelezatan premium di setiap momen spesialmu.
+        </p>
+        <a href="#produk" style="background: #c6955b; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; box-shadow: 0 5px 15px rgba(198, 149, 91, 0.4);">
+            PESAN SEKARANG
+        </a>
+    </div>
+</section>
     <section id="tentang">
         <div class="about-img" data-aos="fade-right">
             <img src="produk2.jpg" alt="About Us">
