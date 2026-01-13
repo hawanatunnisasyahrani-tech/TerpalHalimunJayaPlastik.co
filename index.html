@@ -21,22 +21,23 @@
 
         /* RESET & BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; width: 100%; }
+        html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; width: 100%; position: relative; }
         
-        /* HEADER & NAVBAR */
+        /* HEADER & NAVBAR - PERBAIKAN HP */
         header { background: var(--white); width: 100%; position: fixed; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
         .top-info { background: var(--primary); color: var(--white); padding: 10px 5%; font-size: 11px; text-align: center; font-weight: 500; letter-spacing: 0.5px; }
         
-        .navbar-main { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .navbar-main { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; }
         .search-box { display: flex; width: 100%; max-width: 500px; background: #f5f5f5; border-radius: 12px; padding: 4px 4px 4px 15px; border: 1px solid #eee; transition: 0.3s; }
         .search-box:focus-within { background: #fff; border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(198, 149, 91, 0.1); }
         .search-box input { flex: 1; border: none; background: transparent; outline: none; font-size: 14px; font-family: inherit; }
         .search-box button { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 12px; }
 
-        nav { display: flex; gap: 20px; width: 100%; overflow-x: auto; padding: 5px 0; justify-content: center; scrollbar-width: none; }
+        /* Nav diperbaiki agar tidak overflow keluar layar */
+        nav { display: flex; gap: 20px; width: 100%; overflow-x: auto; padding: 5px 15px; justify-content: flex-start; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
         nav::-webkit-scrollbar { display: none; }
-        nav a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 13px; white-space: nowrap; transition: 0.3s; padding: 5px 0; border-bottom: 2px solid transparent; }
+        nav a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 13px; white-space: nowrap; transition: 0.3s; padding: 5px 0; border-bottom: 2px solid transparent; flex-shrink: 0; }
         nav a:hover { color: var(--secondary); border-bottom-color: var(--secondary); }
 
         /* Update CSS Hero agar gambar muncul sempurna */
@@ -66,6 +67,7 @@
             position: relative; 
             z-index: 3; 
             max-width: 800px; 
+            padding: 0 20px;
         }
         /* CARDS */
         .section-title { text-align: center; margin-bottom: 40px; font-family: 'Lora', serif; font-size: 32px; color: var(--primary); }
@@ -96,6 +98,7 @@
         /* DESKTOP VIEW */
         @media (min-width: 769px) {
             .navbar-main { flex-direction: row; justify-content: space-between; padding: 15px 8%; }
+            nav { justify-content: center; padding: 5px 0; }
             .katalog-container { grid-template-columns: repeat(4, 1fr); gap: 25px; }
             .card img { height: 220px; }
             .hero { height: 80vh; margin-top: 120px; }
@@ -239,10 +242,10 @@
         <div class="info-card" style="max-width: 900px; margin: 0 auto;" data-aos="fade-up">
             <p>📍 <strong>Alamat:</strong> Jl. Jembatan Pari Gang H. Isa 1 Rt. 02 Rw 03 Cijujung, Sukaraja, Kabupaten Bogor.</p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15855.123456789!2d106.828!3d-6.536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c1186e819b13%3A0x401576d141ed150!2sSukaraja%2C%20Bogor%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15856.40236021464!2d106.8294!3d-6.5089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMzIuMCJTIDEwNsKwNDknNDUuOCJF!5e0!3m2!1sid!2sid!4v1620000000000" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://maps.app.goo.gl/YourLinkHere" target="_blank" style="display: block; text-align: center; margin-top: 15px; color: var(--secondary); font-weight: bold; text-decoration: none;">Buka di Google Maps →</a>
+            <a href="#" target="_blank" style="display: block; text-align: center; margin-top: 15px; color: var(--secondary); font-weight: bold; text-decoration: none;">Buka di Google Maps →</a>
         </div>
     </section>
 
