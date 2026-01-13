@@ -3,500 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Brownies Choco - Premium UMKM</title>
+    <title>Browniesta.co - Sweet Bites, Happy Vibes!</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-        /* Pastikan teks di dalam modal memiliki kontras yang baik */
-#modalDesc {
-    color: #eeeeee !important; /* Warna abu-abu sangat terang mendekati putih */
-    line-height: 1.6;
-    margin-bottom: 20px;
-    font-size: 14px;
-}
+        :root {
+            --primary: #3d2522;
+            --secondary: #c6955b;
+            --accent: #f4e3d3;
+            --white: #ffffff;
+            --text: #333333;
+        }
 
-#modalTitle {
-    color: #ffffff !important; /* Judul putih agar menonjol */
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #fffcf9; color: var(--text); overflow-x: hidden; width: 100%; }
+        h1, h2, h3 { font-family: 'Lora', serif; }
+        img { max-width: 100%; height: auto; }
+        section { scroll-margin-top: 140px; padding: 60px 5%; }
 
-#modalPrice {
-    color: #c6955b !important; /* Warna gold agar tetap senada dengan tema */
-}
+        /* HEADER */
+        header { background: var(--white); width: 100%; position: fixed; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .top-info { background: var(--primary); color: var(--white); padding: 8px 5%; font-size: 10px; display: flex; justify-content: space-between; text-transform: uppercase; letter-spacing: 1px; }
+        .navbar-main { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+        
+        .search-box { display: flex; width: 100%; max-width: 600px; background: #f1f1f1; border-radius: 50px; padding: 2px 2px 2px 15px; border: 1px solid #ddd; }
+        .search-box input { flex: 1; border: none; background: transparent; outline: none; font-size: 14px; padding: 8px 0; }
+        .search-box button { background: var(--primary); color: white; border: none; padding: 8px 15px; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 12px; }
 
-/* Penyesuaian khusus untuk Mobile agar teks tidak tenggelam */
-@media (max-width: 768px) {
-    .modal-content {
-        background: #1a1a1a; /* Latar belakang modal dibuat gelap sekalian agar elegan */
-    }
-    
-    .modal-content div {
-        padding: 20px !important;
-    }
-}
-    :root {
-        --primary: #3d2522;
-        --secondary: #c6955b;
-        --accent: #f4e3d3;
-        --white: #ffffff;
-        --text: #333333;
-    }
+        nav { display: flex; gap: 12px; flex-wrap: nowrap; justify-content: center; width: 100%; overflow-x: auto; padding-bottom: 5px; }
+        nav a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 11px; text-transform: uppercase; white-space: nowrap; }
 
-    /* --- DASAR AUTO-RESPONSIVE --- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { 
-        font-family: 'Inter', sans-serif; 
-        background-color: #fffcf9; 
-        color: var(--text); 
-        overflow-x: hidden; 
-        width: 100%;
-    }
-    h1, h2, h3 { font-family: 'Lora', serif; }
-    img { max-width: 100%; height: auto; }
+        /* KERANJANG FLOATING BUTTON */
+        .cart-trigger { position: fixed; bottom: 20px; right: 20px; background: var(--secondary); color: white; padding: 15px 20px; border-radius: 50px; cursor: pointer; z-index: 999; box-shadow: 0 5px 15px rgba(0,0,0,0.2); font-weight: bold; border: none; }
 
-    section { scroll-margin-top: 140px; padding: 60px 5%; }
+        /* KATALOG */
+        .katalog-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
+        .card img { width: 100%; height: 140px; object-fit: cover; }
+        .card-body { padding: 12px; }
+        .card-body h3 { font-size: 13px; color: var(--primary); margin-bottom: 5px; height: 32px; overflow: hidden; }
+        .price { color: var(--secondary); font-weight: 800; font-size: 14px; margin-bottom: 10px; }
+        .btn-cart { width: 100%; padding: 8px; border-radius: 50px; border: none; background: var(--secondary); color: white; font-weight: 700; font-size: 10px; cursor: pointer; }
 
-    /* --- PERBAIKAN HEADER & NAVBAR --- */
-    header { 
-        background: var(--white); 
-        width: 100%; 
-        position: fixed; 
-        top: 0; 
-        z-index: 1000; 
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-    }
-    
-    .top-info {
-        background: var(--primary); 
-        color: var(--white); 
-        padding: 8px 5%; 
-        font-size: 10px;
-        display: flex; 
-        justify-content: space-between; 
-        text-transform: uppercase; 
-        letter-spacing: 1px;
-    }
+        /* MODAL KERANJANG */
+        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
+        .modal-content { background: white; width: 90%; max-width: 500px; margin: 10vh auto; border-radius: 20px; padding: 25px; position: relative; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .btn-hapus { color: #ff4444; cursor: pointer; font-size: 12px; font-weight: bold; border: none; background: none; }
+        .btn-checkout { display: block; width: 100%; background: #25d366; color: white; text-align: center; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 20px; border: none; }
 
-    .navbar-main {
-        padding: 15px 5%; 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-        gap: 12px;
-        width: 100%;
-    }
-
-    .search-box {
-        display: flex; 
-        width: 100%; 
-        max-width: 600px; 
-        background: #f1f1f1; 
-        border-radius: 50px; 
-        padding: 2px 2px 2px 15px;
-        border: 1px solid #ddd;
-    }
-    .search-box input { flex: 1; border: none; background: transparent; outline: none; font-size: 14px; padding: 8px 0; }
-    .search-box button { 
-        background: var(--primary); 
-        color: white; 
-        border: none; 
-        padding: 8px 15px; 
-        border-radius: 50px; 
-        cursor: pointer; 
-        font-weight: 700;
-        font-size: 12px;
-    }
-
-    nav { 
-        display: flex; 
-        gap: 12px; 
-        flex-wrap: nowrap; 
-        justify-content: center; 
-        width: 100%;
-        overflow-x: auto; 
-        padding-bottom: 5px;
-    }
-    nav a { 
-        text-decoration: none; 
-        color: var(--primary); 
-        font-weight: 700; 
-        font-size: 11px; 
-        text-transform: uppercase; 
-        white-space: nowrap;
-    }
-
-    /* --- HERO --- */
-    .hero { 
-        margin-top: 140px; 
-        height: 60vh; 
-        display: flex; 
-        align-items: center; 
-        position: relative;
-        background: #222; 
-        color: white; 
-        overflow: hidden; 
-        padding: 0 7%; 
-        border-radius: 0 0 30px 30px;
-    }
-    .hero-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
-    .hero-text { position: relative; z-index: 2; max-width: 700px; width: 100%; }
-    .hero-text h1 { font-size: clamp(28px, 6vw, 50px); margin-bottom: 15px; }
-    .btn-gold {
-        background: var(--secondary); color: white; padding: 12px 30px; border-radius: 50px;
-        text-decoration: none; font-weight: 700; display: inline-block; font-size: 14px;
-    }
-
-    /* --- TENTANG KAMI --- */
-    #tentang { display: flex; flex-direction: column; gap: 30px; }
-    .about-text h2 { font-size: 28px; color: var(--primary); margin-bottom: 15px; }
-    .about-text p { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 15px; }
-    .about-img { border-radius: 20px; overflow: hidden; box-shadow: 8px 8px 0 var(--secondary); }
-
-    /* --- KATALOG --- */
-    .katalog-container { 
-        display: grid; 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 12px; 
-    }
-    .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
-    .card img { width: 100%; height: 140px; object-fit: cover; }
-    .card-body { padding: 12px; }
-    .card-body h3 { font-size: 13px; color: var(--primary); margin-bottom: 5px; height: 32px; overflow: hidden; }
-    .price { color: var(--secondary); font-weight: 800; font-size: 14px; margin-bottom: 10px; }
-    .btn-more {
-        width: 100%; padding: 8px; border-radius: 50px; border: 1.5px solid var(--primary);
-        background: transparent; color: var(--primary); font-weight: 700; font-size: 10px; cursor: pointer;
-    }
-
-    /* --- MODAL --- */
-    .modal {
-        display: none; position: fixed; z-index: 2000; top: 0; left: 0;
-        width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px);
-    }
-    .modal-content {
-        background: white; width: 90%; max-width: 850px; margin: 5vh auto;
-        border-radius: 20px; overflow-y: auto; display: flex; flex-direction: column; position: relative;
-        max-height: 90vh;
-    }
-
-    /* --- DESKTOP OPTIMIZATION --- */
-    @media (min-width: 769px) {
-        section { padding: 80px 10%; }
-        .navbar-main { flex-direction: row; justify-content: space-between; padding: 15px 10%; }
-        nav { gap: 25px; width: auto; }
-        nav a { font-size: 13px; }
-        .search-box { width: 350px; }
-        .hero { height: 70vh; margin-top: 130px; border-radius: 0 0 50px 50px; }
-        #tentang { flex-direction: row; align-items: center; gap: 50px; }
-        .about-text, .about-img { flex: 1; }
-        .katalog-container { grid-template-columns: repeat(4, 1fr); gap: 25px; }
-        .card img { height: 240px; }
-        .card-body h3 { font-size: 16px; }
-        .modal-content { flex-direction: row; }
-    }
+        @media (min-width: 769px) {
+            .navbar-main { flex-direction: row; justify-content: space-between; padding: 15px 10%; }
+            .katalog-container { grid-template-columns: repeat(4, 1fr); gap: 25px; }
+            .card img { height: 240px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <div class="top-info">
-        <span>Brownies Choco - Official Store</span>
-        <span>0852-1691-9157</span>
+        <span>browniesta.co 🍫 Sweet Bites, Happy Vibes!</span>
+        <span>Minggu 07.00 - 12.00</span>
     </div>
     <div class="navbar-main">
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Cari varian favorit...">
+            <input type="text" id="searchInput" placeholder="Cari brownies favorit...">
             <button onclick="searchProduct()">CARI</button>
         </div>
         <nav>
             <a href="#home">Home</a>
             <a href="#tentang">Tentang</a>
             <a href="#produk">Produk</a>
-            <a href="#pemesanan">Pemesanan</a>
             <a href="#kontak">Kontak</a>
         </nav>
     </div>
 </header>
 
+<button class="cart-trigger" onclick="openCart()">🛒 Keranjang (<span id="cartCount">0</span>)</button>
+
 <main>
-   <section id="home" style="margin-top: 120px; height: 75vh; position: relative; display: flex; align-items: center; padding: 0 5%; overflow: hidden; border-radius: 0 0 50px 50px;">
-    <img src="produk1.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-    
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)); z-index: 2;"></div>
-
-    <div style="position: relative; z-index: 3; max-width: 600px; color: white;" data-aos="fade-right">
-        <h1 style="font-size: clamp(32px, 8vw, 56px); line-height: 1.1; margin-bottom: 20px; font-family: 'Lora', serif;">
-            Premium Brownies <br> <span style="color: #c6955b;">Nyoklat Banget!</span>
-        </h1>
-        <p style="font-size: clamp(14px, 4vw, 18px); margin-bottom: 30px; opacity: 0.9; line-height: 1.6;">
-            Hadir dengan resep autentik dan cokelat pilihan untuk sensasi lumer di setiap gigitan. Nikmati kelezatan premium di setiap momen spesialmu.
-        </p>
-        <a href="#produk" style="background: #c6955b; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; box-shadow: 0 5px 15px rgba(198, 149, 91, 0.4);">
-            PESAN SEKARANG
-        </a>
-    </div>
-</section>
-    <section id="tentang" style="display: flex; flex-direction: column; gap: 40px; align-items: center; padding: 80px 7%;">
-    <div class="about-flex-container" style="display: flex; flex-direction: row; align-items: center; gap: 60px; max-width: 1200px; width: 100%;">
-        
-        <div class="about-img" style="flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 15px 15px 0 var(--secondary); max-width: 500px;" data-aos="fade-right">
-            <img src="produk2.jpg" alt="Tentang Brownies Choco" style="width: 100%; height: auto; display: block;">
+    <section id="home" style="margin-top: 120px; height: 75vh; position: relative; display: flex; align-items: center; border-radius: 0 0 50px 50px; overflow: hidden;">
+        <img src="produk1.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+        <div style="position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2;"></div>
+        <div style="position: relative; z-index: 3; color: white; padding: 0 10%;" data-aos="fade-up">
+            <h1 style="font-size: clamp(30px, 8vw, 50px);">Browniesta.co</h1>
+            <p style="font-size: 18px; margin: 15px 0;">Rasakan kebahagiaan di setiap gigitan! ✨</p>
+            <a href="#produk" class="btn-checkout" style="width: auto; display: inline-block; padding: 12px 30px; background: var(--secondary);">LIHAT MENU</a>
         </div>
-
-        <div class="about-text" style="flex: 1.2;" data-aos="fade-left">
-            <h2 style="font-size: 32px; color: var(--primary); margin-bottom: 25px; line-height: 1.2; font-family: 'Lora', serif;">
-                Tentang Brownies Choco
-            </h2>
-            <div style="font-size: 16px; color: #444; line-height: 1.8; text-align: justify; font-family: 'Inter', sans-serif;">
-                <p style="margin-bottom: 20px;">
-                    Kami adalah usaha rumahan yang menghadirkan brownies cokelat dengan cita rasa lembut, legit, dan penuh cinta. Berawal dari dapur kecil dan resep keluarga, kami percaya bahwa brownies bukan sekadar camilan, tapi juga pembawa kebahagiaan.
-                </p>
-                <p style="margin-bottom: 25px;">
-                    Setiap produk kami dibuat dari bahan pilihan berkualitas, cokelat premium, tanpa pengawet, dan diproses dengan standar kebersihan yang sangat dijaga untuk memastikan kepuasan Anda di setiap gigitan.
-                </p>
-            </div>
-            <div style="font-size: 18px; font-weight: 700; color: var(--secondary); border-left: 4px solid var(--secondary); padding-left: 15px;">
-                Lumer di Mulut, Berkesan di Hati 🤎
-            </div>
-        </div>
-    </div>
-</section>
-
-<style>
-    /* Mengatur agar di HP tampilan menjadi vertikal */
-    @media (max-width: 768px) {
-        .about-flex-container {
-            flex-direction: column !important;
-            text-align: center;
-        }
-        .about-text h2 {
-            font-size: 28px !important;
-            margin-top: 20px;
-        }
-        .about-text div {
-            text-align: center !important;
-            font-size: 15px !important;
-        }
-    }
-</style>
     </section>
 
     <section id="produk">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="font-size: 32px; color: var(--primary);">Katalog Produk</h2>
-            <div style="width: 60px; height: 3px; background: var(--secondary); margin: 10px auto;"></div>
-        </div>
-
+        <h2 style="text-align: center; margin-bottom: 30px;">Menu Browniesta</h2>
         <div class="katalog-container">
-            <div class="card" data-aos="fade-up"><img src="produk1.jpg"><div class="card-body"><h3>Choco Almond 12 Box</h3><p class="price">Rp 85.000</p><button class="btn-more" onclick="openProduct('p1')">READ MORE</button></div></div>
-            <div class="card" data-aos="fade-up" data-aos-delay="100"><img src="produk2.jpg"><div class="card-body"><h3>Brownies Choco Almond</h3><p class="price">Rp 50.000</p><button class="btn-more" onclick="openProduct('p2')">READ MORE</button></div></div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200"><img src="produk3.jpg"><div class="card-body"><h3>Fudgy Brownies Original</h3><p class="price">Rp 40.000</p><button class="btn-more" onclick="openProduct('p3')">READ MORE</button></div></div>
-            <div class="card" data-aos="fade-up"><img src="produk4.jpg"><div class="card-body"><h3>Brownies Oreo Crunchy</h3><p class="price">Rp 48.000</p><button class="btn-more" onclick="openProduct('p4')">READ MORE</button></div></div>
-            <div class="card" data-aos="fade-up"><img src="produk5.jpg"><div class="card-body"><h3>Signature Talas Keju</h3><p class="price">Rp 46.000</p><button class="btn-more" onclick="openProduct('p5')">READ MORE</button></div></div>
-            <div class="card" data-aos="fade-up"><img src="produk6.jpg"><div class="card-body"><h3>Donat Kukus Cokelat</h3><p class="price">Rp 42.000</p><button class="btn-more" onclick="openProduct('p6')">READ MORE</button></div></div>
-            <div class="card" data-aos="fade-up"><img src="produk7.jpg"><div class="card-body"><h3>Donat Talas Cokelat</h3><p class="price">Rp 25.000</p><button class="btn-more" onclick="openProduct('p7')">READ MORE</button></div></div>
-            <div class="card" data-aos="fade-up"><img src="produk8.jpg"><div class="card-body"><h3>Donat Bubble Gum</h3><p class="price">Rp 28.000</p><button class="btn-more" onclick="openProduct('p8')">READ MORE</button></div></div>
+            <div class="card"><img src="produk3.jpg"><div class="card-body"><h3>Brownies Original</h3><p class="price">Rp 15.000</p><button class="btn-cart" onclick="addToCart('Original', 15000)">+ KERANJANG</button></div></div>
+            <div class="card"><img src="produk5.jpg"><div class="card-body"><h3>Brownies Keju</h3><p class="price">Rp 20.000</p><button class="btn-cart" onclick="addToCart('Keju', 20000)">+ KERANJANG</button></div></div>
+            <div class="card"><img src="produk2.jpg"><div class="card-body"><h3>Brownies Almond</h3><p class="price">Rp 20.000</p><button class="btn-cart" onclick="addToCart('Almond', 20000)">+ KERANJANG</button></div></div>
+            <div class="card"><img src="produk4.jpg"><div class="card-body"><h3>Brownies Mix</h3><p class="price">Rp 18.000</p><button class="btn-cart" onclick="addToCart('Mix', 18000)">+ KERANJANG</button></div></div>
         </div>
     </section>
 
-    <section id="pemesanan" style="background: var(--primary); color: white; text-align: center;">
-        <h2 style="font-size: 30px; margin-bottom: 20px;">Cara Pemesanan</h2>
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-            <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 20px; width: 100%; max-width: 250px;">
-                <h3 style="color: var(--secondary);">01. Pilih</h3>
-                <p style="font-size: 14px;">Pilih varian brownies favorit Anda.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 20px; width: 100%; max-width: 250px;">
-                <h3 style="color: var(--secondary);">02. Chat</h3>
-                <p style="font-size: 14px;">Klik pesan untuk chat WhatsApp.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 20px; width: 100%; max-width: 250px;">
-                <h3 style="color: var(--secondary);">03. Nikmati</h3>
-                <p style="font-size: 14px;">Lakukan pembayaran & barang dikirim.</p>
-            </div>
-        </div>
+    <section id="tentang" style="background: #fdf8f3;">
+        <h2>Tentang Kami</h2>
+        <p style="margin-top: 20px; line-height: 1.8;">Brownies Homemade dengan Bahan Premium. 💖 Dibuat dengan cinta untuk kepuasan Anda. <br>
+        <strong>Lokasi:</strong> Jl. Jembatan Pari Gang H. Isa 1 Rt. 02 Rw 03 Cijujung, Sukaraja, Kabupaten Bogor.</p>
     </section>
 
-    <section id="kontak" style="background: #fff; padding: 80px 7%;">
-        <div class="contact-wrapper" style="max-width: 1100px; margin: 0 auto;">
-            
-            <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">
-                <h2 style="font-size: clamp(22px, 4vw, 32px); color: var(--primary); margin-bottom: 20px;">
-                    MAU PESAN BANYAK <span style="color: var(--secondary);">BROWNIES CHOHO?</span>
-                </h2>
-                <p style="color: #666; font-size: 15px; line-height: 1.8; max-width: 900px; margin: 0 auto;">
-                    Apakah kamu ingin brownies choco untuk kebutuhan berbagai kegiatan kamu? 
-                    Kami menawarkan banyak varian lezat yang dapat dipesan dalam jumlah besar, ideal untuk acara perusahaan, kafe, restoran, dan toko ritel. 
-                    Dengan bahan-bahan terbaik dan resep yang teruji, brownies choco tidak hanya memanjakan lidah tetapi juga menambah nilai bagi bisnis kamu. 
-                    <br><br>
-                    <strong>Hubungi kami untuk mendapatkan penawaran khusus dan solusi pemesanan yang disesuaikan dengan kebutuhan Kamu.</strong>
-                </p>
-            </div>
-
-            <div style="background: #fdf8f3; padding: 40px; border-radius: 25px; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05);" data-aos="fade-up">
-                <form onsubmit="sendToWA(event)">
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-                        
-                        <div>
-                            <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 14px; color: var(--primary);">Kebutuhan*</label>
-                            <select id="kebutuhan" required style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-family: inherit; outline: none; cursor: pointer;">
-                                <option value="" disabled selected>—Silakan pilih opsi—</option>
-                                <option value="Bisnis to Bisnis">Bisnis to Bisnis</option>
-                                <option value="Jadi Mitra">Jadi Mitra</option>
-                                <option value="Keluhan & Saran">Keluhan & Saran</option>
-                            </select>
-                        </div>
-
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                            <div>
-                                <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 14px; color: var(--primary);">Nama Lengkap*</label>
-                                <input type="text" id="nama_form" required placeholder="Masukkan nama lengkap" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; outline: none;">
-                            </div>
-                            <div>
-                                <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 14px; color: var(--primary);">No. WhatsApp*</label>
-                                <input type="tel" id="wa_form" required placeholder="Contoh: 08123456789" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; outline: none;">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 14px; color: var(--primary);">Email</label>
-                            <input type="email" id="email_form" placeholder="Alamat email aktif" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; outline: none;">
-                        </div>
-
-                        <div>
-                            <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 14px; color: var(--primary);">Isi Pesan*</label>
-                            <textarea id="pesan_form" required rows="4" placeholder="Tuliskan detail kebutuhan acara atau bisnis kamu..." style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; outline: none; font-family: inherit; resize: none;"></textarea>
-                        </div>
-
-                        <button type="submit" style="background: var(--primary); color: white; padding: 15px; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 15px; transition: 0.3s; margin-top: 10px;">
-                            KIRIM PERMINTAAN SEKARANG
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <section id="kontak" style="text-align: center;">
+        <h2>Hubungi Kami</h2>
+        <p>Email: browniesta.co@gmail.com</p>
+        <p>WA: +62 889-7339-5327</p>
     </section>
-
-    <script>
-        function sendToWA(event) {
-            event.preventDefault();
-            const kebutuhan = document.getElementById('kebutuhan').value;
-            const nama = document.getElementById('nama_form').value;
-            const wa = document.getElementById('wa_form').value;
-            const email = document.getElementById('email_form').value || '-';
-            const pesan = document.getElementById('pesan_form').value;
-            
-            const nomorAdmin = "6285216919157";
-            const text = `Halo Admin, saya ingin mengajukan pesanan/kerjasama:%0A%0A` +
-                         `*Kebutuhan:* ${kebutuhan}%0A` +
-                         `*Nama:* ${nama}%0A` +
-                         `*WhatsApp:* ${wa}%0A` +
-                         `*Email:* ${email}%0A` +
-                         `*Pesan:* ${pesan}`;
-            
-            window.open(`https://wa.me/${nomorAdmin}?text=${text}`, '_blank');
-        }
-    </script>
 </main>
 
-<div id="productModal" class="modal">
+<div id="cartModal" class="modal">
     <div class="modal-content">
-        <span onclick="closeModal()" style="position: absolute; right: 20px; top: 10px; font-size: 30px; cursor: pointer; color: white; z-index: 100;">&times;</span>
-        
-        <div style="flex: 1; background: #fff;">
-            <img id="modalImg" src="" style="width: 100%; height: 100%; object-fit: cover;">
+        <span onclick="closeCart()" style="position: absolute; right: 20px; top: 10px; font-size: 24px; cursor: pointer;">&times;</span>
+        <h2 style="margin-bottom: 20px;">Keranjang Belanja</h2>
+        <div id="cartItemsList">
+            </div>
+        <div style="margin-top: 20px; border-top: 2px solid #eee; padding-top: 15px;">
+            <h3 style="display: flex; justify-content: space-between;">Total: <span id="totalPrice">Rp 0</span></h3>
         </div>
-        
-        <div style="flex: 1; padding: 30px; background: #1a1a1a; display: flex; flex-direction: column; justify-content: center;">
-            <h2 id="modalTitle" style="font-family: 'Lora', serif; margin-bottom: 10px;"></h2>
-            <p id="modalPrice" style="font-size: 24px; font-weight: 800; margin-bottom: 15px;"></p>
-            
-            <p id="modalDesc"></p> 
-            
-            <a id="modalWA" href="#" target="_blank" style="display: block; background: #25d366; color: white; text-align: center; padding: 12px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 10px;">ORDER SEKARANG</a>
-        </div>
+        <button class="btn-checkout" onclick="checkoutWA()">💬 Pesan Sekarang via WA</button>
     </div>
 </div>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 800 });
+    AOS.init();
+    let cart = [];
 
-    const dataProduk = {
-        'p1': { 
-            title: "Choco Almond 12 Kotak", 
-            price: "Rp 85.000", 
-            img: "produk1.jpg", 
-            desc: "Nikmati paket hemat berisi 12 potong brownies mini premium dengan topping almond slice yang melimpah di setiap kotaknya. Teksturnya fudgy di dalam dan shiny crust di luar. Sangat cocok untuk hantaran, oleh-oleh, atau camilan bersama keluarga besar." 
-        },
-        'p2': { 
-            title: "Brownies Choco Almond", 
-            price: "Rp 50.000", 
-            img: "produk2.jpg", 
-            desc: "Varian best-seller kami! Perpaduan sempurna antara adonan cokelat pekat berkualitas dengan irisan almond gurih di atasnya. Menggunakan butter pilihan yang memberikan aroma harum yang menggugah selera." 
-        },
-        'p3': { 
-            title: "Fudgy Brownies Original", 
-            price: "Rp 40.000", 
-            img: "produk3.jpg", 
-            desc: "Bagi pecinta cokelat sejati, varian ini adalah jawabannya. Menggunakan 100% Dark Chocolate premium tanpa campuran pemanis buatan. Teksturnya padat, lembap (moist), dan memberikan sensasi 'nyoklat banget' yang tertinggal di lidah." 
-        },
-        'p4': { 
-            title: "Brownies Oreo Crunchy", 
-            price: "Rp 48.000", 
-            img: "produk4.jpg", 
-            desc: "Kombinasi modern antara brownies fudgy dengan biskuit Oreo yang legendaris. Ada tekstur renyah dari potongan Oreo di setiap gigitan, memberikan sensasi makan brownies yang unik dan berbeda." 
-        },
-        'p5': { 
-            title: "Signature Talas Keju", 
-            price: "Rp 46.000", 
-            img: "produk5.jpg", 
-            desc: "Brownies inovatif dengan bahan dasar talas pilihan yang lembut. Dipadukan dengan topping parutan keju cheddar berkualitas yang melimpah. Rasa manis talas yang lembut berpadu sempurna dengan gurihnya keju." 
-        },
-        'p6': { 
-            title: "Donat Kukus Cokelat", 
-            price: "Rp 42.000", 
-            img: "produk6.jpg", 
-            desc: "Donat yang diproses dengan cara dikukus sehingga memiliki kelembutan maksimal dan tidak berminyak. Disiram dengan saus cokelat lumer yang melimpah (lava chocolate) di bagian tengahnya." 
-        },
-        'p7': { 
-            title: "Donat Talas Cokelat", 
-            price: "Rp 25.000", 
-            img: "produk7.jpg", 
-            desc: "Donat unik berbahan dasar talas yang memberikan warna cantik natural dan aroma khas. Dilapisi dengan glaze cokelat premium yang tebal dan memberikan rasa manis yang pas." 
-        },
-        'p8': { 
-            title: "Donat Bubble Gum", 
-            price: "Rp 28.000", 
-            img: "produk8.jpg", 
-            desc: "Varian kekinian untuk Anda yang menyukai rasa unik dan menyegarkan. Donat lembut dengan topping glaze rasa Bubble Gum yang aromatik dan warna biru yang menarik perhatian. Favorit anak-anak dan remaja!" 
-        }
-    };
-
-    function openProduct(id) {
-        const p = dataProduk[id];
-        document.getElementById('modalTitle').innerText = p.title;
-        document.getElementById('modalPrice').innerText = p.price;
-        document.getElementById('modalImg').src = p.img;
-        document.getElementById('modalDesc').innerText = p.desc;
-        document.getElementById('modalWA').href = "https://wa.me/6285216919157?text=Halo, saya mau pesan: " + p.title;
-        document.getElementById('productModal').style.display = "block";
-        document.body.style.overflow = "hidden";
+    function addToCart(name, price) {
+        cart.push({ name, price });
+        updateCartUI();
+        alert(name + " berhasil ditambah!");
     }
 
-    function closeModal() {
-        document.getElementById('productModal').style.display = "none";
-        document.body.style.overflow = "auto";
+    function updateCartUI() {
+        document.getElementById('cartCount').innerText = cart.length;
+        const list = document.getElementById('cartItemsList');
+        const totalEl = document.getElementById('totalPrice');
+        list.innerHTML = '';
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            total += item.price;
+            list.innerHTML += `
+                <div class="cart-item">
+                    <span>${item.name} - Rp ${item.price.toLocaleString()}</span>
+                    <button class="btn-hapus" onclick="removeItem(${index})">[Hapus]</button>
+                </div>
+            `;
+        });
+        totalEl.innerText = "Rp " + total.toLocaleString();
     }
 
-    // Menutup modal jika user klik di luar area modal
-    window.onclick = function(event) {
-        let modal = document.getElementById('productModal');
-        if (event.target == modal) {
-            closeModal();
-        }
+    function removeItem(index) {
+        cart.splice(index, 1);
+        updateCartUI();
+    }
+
+    function openCart() { document.getElementById('cartModal').style.display = 'block'; }
+    function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
+
+    function checkoutWA() {
+        if (cart.length === 0) return alert("Keranjang masih kosong!");
+        let text = "Halo Browniesta.co, saya mau pesan:%0A%0A";
+        let total = 0;
+        cart.forEach((item, i) => {
+            text += `${i+1}. ${item.name} (Rp ${item.price.toLocaleString()})%0A`;
+            total += item.price;
+        });
+        text += `%0A*Total: Rp ${total.toLocaleString()}*%0A%0AMohon diproses ya!`;
+        window.open(`https://wa.me/6288973395327?text=${text}`, '_blank');
     }
 
     function searchProduct() {
@@ -506,7 +189,6 @@
             const t = c.querySelector('h3').innerText.toLowerCase();
             c.style.display = t.includes(kw) ? "block" : "none";
         });
-        document.getElementById('produk').scrollIntoView();
     }
 </script>
 
