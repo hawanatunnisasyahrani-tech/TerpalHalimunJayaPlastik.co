@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. Terpal Halimun Jaya Plastik | Global Industrial Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&display=swap');
+        
+        :root {
+            --brand-gold: #b38b59;
+            --deep-black: #0a0a0a;
+        }
 
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth;
+        }
+
+        /* Luxury Gradient Background */
+        .premium-bg {
+            background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f9f9f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Floating Accent Shapes for 'Wah' Effect */
+        .premium-bg::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(179, 139, 89, 0.05) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            z-index: 0;
+        }
+
+        /* World Class Typography */
+        .hero-title {
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #8a6d3b 0%, #d4af37 50%, #8a6d3b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Elegant Button Animation */
+        .btn-elite {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-elite:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(179, 139, 89, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1.5px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--brand-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-xl border-b border-gray-50 px-8 py-5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-11 h-11 border border-black flex items-center justify-center font-bold text-xs tracking-tighter">HJP</div>
+                <div class="hidden lg:block border-l border-gray-200 pl-4">
+                    <h2 class="text-[10px] font-black tracking-[0.3em] text-gray-900 uppercase">Terpal Halimun Jaya Plastik</h2>
+                </div>
+            </div>
+
+            <div class="hidden md:flex gap-10 items-center">
+                <a href="index.html" class="nav-link text-gray-950 uppercase">Home</a>
+                <a href="tentang.html" class="nav-link text-gray-400 hover:text-gray-950 transition uppercase">Identity</a>
+                <a href="#" class="nav-link text-gray-400 hover:text-gray-950 transition uppercase">Solutions</a>
+                <a href="#" class="nav-link text-gray-400 hover:text-gray-950 transition uppercase">Global Presence</a>
+            </div>
+
+            <a href="https://wa.me/6285216919157" class="btn-elite bg-gray-950 text-white px-7 py-3 text-[10px] font-bold uppercase tracking-widest rounded-full">
+                Connect With Us
+            </a>
+        </div>
+    </nav>
+
+    <section class="premium-bg min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="inline-block px-4 py-1.5 border border-gray-100 rounded-full mb-8 bg-white shadow-sm">
+                <span class="text-[10px] font-bold tracking-[0.5em] text-gray-400 uppercase">Est. 2026 • Premium Grade</span>
+            </div>
+            
+            <h1 class="hero-title text-6xl md:text-[120px] font-extrabold text-gray-950 mb-6 uppercase">
+                Redefining <br>
+                <span class="gold-gradient-text italic font-light">Durability.</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-gray-500 text-lg md:text-xl font-light leading-relaxed mb-12">
+                Penyedia solusi material terpal berkualitas industri untuk standar global. Kekuatan yang dirancang untuk melindungi aset paling berharga Anda.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="tentang.html" class="btn-elite bg-[#b38b59] text-white px-12 py-5 rounded-full font-bold shadow-2xl">
+                    Jelajahi Identity →
+                </a>
+                <div class="h-px w-12 bg-gray-200 hidden sm:block"></div>
+                <a href="#" class="text-xs font-black uppercase tracking-widest hover:text-[#b38b59] transition">
+                    Lihat Katalog Produk
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-16 items-start">
+                
+                <div class="group">
+                    <span class="text-[50px] font-thin text-gray-100 group-hover:text-[#b38b59] transition-colors duration-500">01</span>
+                    <h3 class="text-xl font-bold mt-4 mb-6 uppercase tracking-tight">Material Superior</h3>
+                    <p class="text-gray-500 leading-loose font-light">Setiap serat material kami melalui uji ketahanan standar internasional untuk memastikan perlindungan maksimal terhadap sinar UV dan tekanan ekstrem.</p>
+                </div>
+
+                <div class="group">
+                    <span class="text-[50px] font-thin text-gray-100 group-hover:text-[#b38b59] transition-colors duration-500">02</span>
+                    <h3 class="text-xl font-bold mt-4 mb-6 uppercase tracking-tight">Presisi Global</h3>
+                    <p class="text-gray-500 leading-loose font-light">Didukung oleh teknologi manufaktur terkini, kami memastikan setiap pesanan memiliki akurasi dimensi dan kualitas finishing yang sempurna.</p>
+                </div>
+
+                <div class="group">
+                    <span class="text-[50px] font-thin text-gray-100 group-hover:text-[#b38b59] transition-colors duration-500">03</span>
+                    <h3 class="text-xl font-bold mt-4 mb-6 uppercase tracking-tight">Layanan Eksklusif</h3>
+                    <p class="text-gray-500 leading-loose font-light">Kemitraan bagi kami adalah prioritas. Kami menyediakan konsultasi teknis mendalam untuk setiap kebutuhan proyek skala menengah hingga besar.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0a0a0a] text-white pt-32 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-2">
+                    <h4 class="text-4xl font-bold mb-8 uppercase leading-none">PT. Terpal Halimun <br> <span class="text-[#b38b59]">Jaya Plastik</span></h4>
+                    <p class="text-gray-500 max-w-sm font-light leading-relaxed">
+                        Membangun masa depan industri melalui integritas, inovasi, dan kualitas produk tanpa kompromi.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold tracking-[0.3em] uppercase text-[#b38b59] mb-8">Navigation</h5>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light">
+                        <li><a href="#" class="hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#" class="hover:text-white transition">Product Specification</a></li>
+                        <li><a href="#" class="hover:text-white transition">Corporate Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold tracking-[0.3em] uppercase text-[#b38b59] mb-8">Global Office</h5>
+                    <p class="text-sm text-gray-400 font-light leading-relaxed">
+                        Bogor Regency, West Java<br>
+                        Indonesia • 16966
+                    </p>
+                    <div class="mt-8 flex gap-5 text-xl">
+                        <a href="#" class="text-gray-600 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-12 flex flex-col md:row justify-between items-center gap-6">
+                <p class="text-[10px] tracking-[0.3em] text-gray-700 uppercase">© 2026 PT. TERPAL HALIMUN JAYA PLASTIK. ALL RIGHTS RESERVED.</p>
+                <div class="flex gap-8 text-[9px] font-bold tracking-widest text-gray-700 uppercase">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6285216919157" class="fixed bottom-10 right-10 bg-white text-black w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition z-50 border border-gray-100">
+        <i class="fab fa-whatsapp text-xl"></i>
+    </a>
+
+</body>
+</html>
