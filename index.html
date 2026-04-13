@@ -18,6 +18,9 @@
         /* Animasi halus untuk tombol */
         .btn-hover { transition: all 0.3s ease; }
         .btn-hover:hover { transform: translateY(-2px); shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        
+        /* Font khusus agar lebih mirip screenshot */
+        h1 { font-family: 'Inter', sans-serif; font-weight: 900; }
     </style>
 </head>
 <body class="font-sans antialiased bg-white">
@@ -26,14 +29,14 @@
         <div class="container mx-auto flex items-center justify-between">
             
             <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full border-2 border-orange-400 p-1 flex items-center justify-center bg-black/50 text-orange-400 font-bold text-lg">PTR</div>
+                <div class="w-12 h-12 rounded-full border-2 border-orange-400 p-1 flex items-center justify-center bg-black/50 text-orange-400 font-bold text-lg tracking-tighter">HJP</div>
                 <div class="flex flex-col">
-                    <span class="font-bold text-sm tracking-tight text-orange-400">PT. Terpal Halimun Jaya Plastik </span>
+                    <span class="font-bold text-sm tracking-tight text-orange-400">PT. Terpal Halimun Jaya Plastik</span>
                     <span class="text-[10px] text-gray-200 uppercase tracking-widest">Kualitas & Terpercaya</span>
                 </div>
             </div> 
 
-            <div class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wide">
+            <div class="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest">
                 <a href="#" class="hover:text-orange-400 transition-colors">Home</a>
                 <a href="#" class="hover:text-orange-400 transition-colors">Tentang Kami</a>
                 <a href="#" class="hover:text-orange-400 transition-colors">Produk</a>
@@ -41,13 +44,13 @@
                 <a href="#" class="hover:text-orange-400 transition-colors">Lokasi</a>
             </div>
 
-            <a href="https://wa.me/6285216919157" class="bg-orange-400 hover:bg-orange-500 text-white px-5 py-2 rounded-md text-sm font-bold btn-hover shadow-lg">
+            <a href="https://wa.me/6285216919157" class="bg-orange-400 hover:bg-orange-500 text-white px-5 py-2.5 rounded-md text-[11px] font-black btn-hover shadow-lg uppercase tracking-wider">
                 HUBUNGI KAMI →
             </a>
         </div>
     </nav>
 
-    <header class="relative w-full h-screen overflow-hidden">
+    <header class="relative w-full h-screen overflow-hidden bg-gray-900">
         
         <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
             <source src="video%20terpal.mp4" type="video/mp4">
@@ -57,24 +60,24 @@
         <div class="video-overlay z-10"></div>
 
         <div class="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
-            <p class="text-white text-sm md:text-xl font-bold tracking-[0.2em] mb-4 uppercase drop-shadow-lg">
+            <p class="text-white text-xs md:text-lg font-bold tracking-[0.3em] mb-4 uppercase drop-shadow-md">
                 SOLUSI TERPAL BERKUALITAS & TERPERCAYA
             </p>
-            <h1 class="text-5xl md:text-8xl font-black text-white leading-none tracking-tighter mb-12 drop-shadow-2xl">
+            <h1 class="text-4xl md:text-8xl font-black text-white leading-tight tracking-tighter mb-12 drop-shadow-2xl max-w-5xl">
                 Terpal Halimun Jaya Plastik 
             </h1>
 
             <div class="flex flex-col sm:flex-row gap-5">
-                <a href="#" class="bg-orange-400 hover:bg-orange-500 text-white px-10 py-4 rounded-full text-base font-bold btn-hover shadow-xl flex items-center gap-2">
+                <a href="#" class="bg-orange-400 hover:bg-orange-500 text-white px-10 py-4 rounded-full text-sm font-bold btn-hover shadow-xl flex items-center justify-center gap-2">
                     Tentang Kami →
                 </a>
-                <a href="https://wa.me/6285216919157" class="bg-white hover:bg-gray-100 text-gray-900 px-10 py-4 rounded-full text-base font-bold btn-hover shadow-xl flex items-center gap-2">
+                <a href="https://wa.me/6285216919157" class="bg-white hover:bg-gray-100 text-gray-900 px-10 py-4 rounded-full text-sm font-bold btn-hover shadow-xl flex items-center justify-center gap-2">
                     Hubungi Kami →
                 </a>
             </div>
         </div>
 
-        <a href="https://wa.me/6285216919157" class="fixed bottom-8 right-8 z-50 bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition-transform">
+        <a href="https://wa.me/6285216919157" class="fixed bottom-8 right-8 z-50 bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
             <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
             </svg>
@@ -82,5 +85,7 @@
 
     </header>
 
+</body>
+</html>
 </body>
 </html>
