@@ -1,85 +1,166 @@
-       <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terpal Halimun Jaya Plastik - Katalog Digital</title>
+    <title>Tentang Kami - PT. Terpal Halimun Jaya Plastik</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.45);
-            z-index: 10;
-        }
-        /* Animasi halus untuk tombol */
-        .btn-hover { transition: all 0.3s ease; }
-        .btn-hover:hover { transform: translateY(-2px); shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .text-hjp { color: #c0843d; } /* Warna aksen emas */
+        .bg-hjp { background-color: #c0843d; }
+        .border-hjp { border-color: #c0843d; }
         
-        /* Font khusus agar lebih mirip screenshot */
-        h1 { font-family: 'Inter', sans-serif; font-weight: 900; }
+        /* Animasi halus */
+        .hover-lift { transition: transform 0.3s ease, shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); }
     </style>
 </head>
-<body class="font-sans antialiased bg-white">
+<body class="bg-white text-gray-900antialiased">
 
-   <nav class="absolute top-0 left-0 w-full z-30 p-4 md:p-6 text-white">
-    <div class="container mx-auto flex items-center justify-between">
-        <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full border-2 border-orange-400 p-1 flex items-center justify-center bg-black/50 text-orange-400 font-bold text-lg tracking-tighter">HJP</div>
-            <div class="flex flex-col">
-                <span class="font-bold text-sm tracking-tight text-orange-400">PT. Terpal Halimun Jaya Plastik</span>
-                <span class="text-[10px] text-gray-200 uppercase tracking-widest">Kualitas & Terpercaya</span>
+    <nav class="bg-white sticky top-0 z-50 shadow-sm p-4 md:px-12 border-b border-gray-100">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border-2 border-hjp flex items-center justify-center font-extrabold text-hjp">HJP</div>
+                <div class="hidden sm:block">
+                    <p class="font-bold text-sm text-gray-900 leading-none uppercase">PT. TERPAL HALIMUN JAYA PLASTIK</p>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Kualitas & Terpercaya</p>
+                </div>
             </div>
-        </div> 
-
-        <div class="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest">
-            <a href="index.html" class="hover:text-orange-400 transition-colors">Home</a>
-            <a href="tentang.html" class="hover:text-orange-400 transition-colors">Tentang Kami</a>
-            <a href="#" class="hover:text-orange-400 transition-colors">Produk</a>
-            <a href="#" class="hover:text-orange-400 transition-colors">Artikel</a>
-            <a href="#" class="hover:text-orange-400 transition-colors">Lokasi</a>
+            <div class="hidden md:flex gap-8 text-[11px] font-semibold uppercase tracking-wider text-gray-600">
+                <a href="index.html" class="hover:text-hjp transition">Home</a> 
+                <a href="tentang.html" class="text-hjp font-bold">Tentang Kami</a>
+                <a href="#" class="hover:text-hjp transition">Produk</a>
+                <a href="#" class="hover:text-hjp transition">Artikel</a>
+                <a href="#" class="hover:text-hjp transition">Lokasi</a>
+            </div>
+            <a href="https://wa.me/6285216919157" class="bg-hjp text-white px-5 py-2.5 rounded-md text-[11px] font-bold shadow-md hover:brightness-110 transition">HUBUNGI KAMI →</a>
         </div>
-
-        <a href="https://wa.me/6285216919157" class="bg-orange-400 hover:bg-orange-500 text-white px-5 py-2.5 rounded-md text-[11px] font-black btn-hover shadow-lg uppercase tracking-wider">
-            HUBUNGI KAMI →
-        </a>
-    </div>
-</nav>
-
-
-
     </nav>
 
-    <header class="relative w-full h-screen overflow-hidden bg-gray-900">
-        
-        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
-            <source src="video%20terpal.mp4" type="video/mp4">
-            Browser kamu tidak mendukung video latar belakang.
-        </video>
-
-        <div class="video-overlay z-10"></div>
-
-        <div class="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
-            <p class="text-white text-xs md:text-lg font-bold tracking-[0.3em] mb-4 uppercase drop-shadow-md">
-                SOLUSI TERPAL BERKUALITAS & TERPERCAYA
-            </p>
-            <h1 class="text-4xl md:text-8xl font-black text-white leading-tight tracking-tighter mb-12 drop-shadow-2xl max-w-5xl">
-                Terpal Halimun Jaya Plastik 
-            </h1>
-
-
-        <a href="https://wa.me/6285216919157" class="fixed bottom-8 right-8 z-50 bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
-            <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-        </a>
-
+    <header class="bg-gray-50 py-20 border-b border-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 uppercase tracking-tighter">Tentang <span class="text-hjp">Kami</span></h1>
+            <div class="w-20 h-1 bg-hjp mx-auto mt-4 rounded-full"></div>
+            <p class="text-gray-500 mt-6 font-medium tracking-wide text-xs uppercase">Home / Tentang Kami</p>
+        </div>
     </header>
 
+    <section class="py-24 container mx-auto px-6">
+        <div class="grid md:grid-cols-5 gap-16 items-center">
+            <div class="md:col-span-2 space-y-6">
+                <span class="text-hjp font-bold text-sm tracking-widest uppercase block">Profil Perusahaan</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold leading-tight text-gray-950 uppercase tracking-tight">
+                    PT. TERPAL HALIMUN<br>
+                    <span class="text-hjp">JAYA PLASTIK</span>
+                </h2>
+                <div class="w-16 h-1 bg-hjp rounded-full"></div>
+            </div>
+            <div class="md:col-span-3 space-y-6 text-gray-700 leading-relaxed bg-gray-50 p-10 rounded-2xl border border-gray-100 shadow-sm">
+                <p>Kami adalah mitra strategis Anda dalam penyediaan solusi terpal kelas industri. Kami membedakan diri melalui dedikasi terhadap material superior dan pelayanan personal yang memastikan setiap produk sesuai dengan spesifikasi ekstrem kebutuhan Anda.</p>
+                <p>Didorong oleh komitmen untuk menghadirkan perlindungan nyata, kami melayani berbagai sektor di seluruh Indonesia, menjamin standar kualitas yang tidak bisa dinegosiasikan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 border-y border-gray-100">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12">
+            <div class="bg-white p-12 rounded-3xl shadow-lg hover-lift border border-gray-100">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 bg-hjp/10 text-hjp rounded-2xl flex items-center justify-center text-3xl"><i class="fas fa-eye"></i></div>
+                    <h3 class="text-3xl font-extrabold text-gray-950">Visi</h3>
+                </div>
+                <p class="text-xl text-gray-800 leading-relaxed font-medium">
+                    Menjadi pemimpin pasar penyedia terpal terpercaya di Indonesia yang mampu memberikan solusi perlindungan berkualitas tinggi, tahan lama, dan inovatif, serta pelayanan yang profesional.
+                </p>
+            </div>
+            
+            <div class="bg-white p-12 rounded-3xl shadow-lg hover-lift border border-gray-100">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 bg-hjp/10 text-hjp rounded-2xl flex items-center justify-center text-3xl"><i class="fas fa-paper-plane"></i></div>
+                    <h3 class="text-3xl font-extrabold text-gray-950">Misi</h3>
+                </div>
+                <ul class="space-y-6 text-gray-700">
+                    <li class="flex items-start gap-4"><i class="fas fa-check text-hjp mt-1"></i> Menyediakan produk berkualitas tinggi dengan material unggulan.</li>
+                    <li class="flex items-start gap-4"><i class="fas fa-check text-hjp mt-1"></i> Mengedepankan kepuasan pelanggan dengan pelayanan terbaik dan responsif.</li>
+                    <li class="flex items-start gap-4"><i class="fas fa-check text-hjp mt-1"></i> Membangun hubungan jangka panjang yang kuat dengan pelanggan dan mitra.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 container mx-auto px-6 text-center">
+        <span class="text-hjp font-bold text-sm tracking-widest uppercase block mb-3">Nilai-Nilai Kami</span>
+        <h2 class="text-4xl font-extrabold mb-16 text-gray-950 uppercase tracking-tight">Komitmen Profesional</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+            <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover-lift">
+                <div class="text-4xl text-hjp mb-6"><i class="fas fa-shield-alt"></i></div>
+                <h4 class="font-bold text-lg mb-2 text-gray-950">Integritas</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">Transparansi penuh dalam setiap interaksi bisnis.</p>
+            </div>
+            <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover-lift">
+                <div class="text-4xl text-hjp mb-6"><i class="fas fa-certificate"></i></div>
+                <h4 class="font-bold text-lg mb-2 text-gray-950">Kualitas</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">Hanya material kelas industri terbaik.</p>
+            </div>
+            <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover-lift">
+                <div class="text-4xl text-hjp mb-6"><i class="fas fa-rocket"></i></div>
+                <h4 class="font-bold text-lg mb-2 text-gray-950">Inovasi</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">Terus beradaptasi dengan solusi terbaru.</p>
+            </div>
+            <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover-lift">
+                <div class="text-4xl text-hjp mb-6"><i class="fas fa-thumbs-up"></i></div>
+                <h4 class="font-bold text-lg mb-2 text-gray-950">Layanan</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">Dukungan cepat dan ramah 24/7.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-gray-400 pt-20 pb-10">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-16 text-sm">
+            <div class="space-y-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-12 h-12 rounded-full border border-white flex items-center justify-center font-extrabold text-white">HJP</div>
+                    <span class="font-bold text-xs uppercase leading-tight text-white tracking-tight">PT. TERPAL HALIMUN JAYA PLASTIK</span>
+                </div>
+                <p class="text-gray-500 leading-relaxed">"Solusi terpal berkualitas tinggi yang kuat, awet, dan terpercaya."</p>
+                <div class="flex gap-5 text-xl">
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-6 uppercase tracking-wider text-xs">Perusahaan</h5>
+                <ul class="space-y-3.5 opacity-80">
+                    <li><a href="index.html" class="hover:text-white hover:underline">Home</a></li>
+                    <li><a href="tentang.html" class="hover:text-white text-white font-semibold">Tentang Kami</a></li>
+                    <li><a href="#" class="hover:text-white hover:underline">Katalog Produk</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-6 uppercase tracking-wider text-xs">Link Cepat</h5>
+                <ul class="space-y-3.5 opacity-80">
+                    <li><a href="#" class="hover:text-white hover:underline">Terpal Roll</a></li>
+                    <li><a href="#" class="hover:text-white hover:underline">Terpal Custom</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-6 uppercase tracking-wider text-xs">Kontak</h5>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3"><i class="fab fa-whatsapp text-white"></i> 085216919157</li>
+                    <li class="flex items-center gap-3"><i class="far fa-envelope text-white"></i> sales@halimunjaya.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-20 pt-8 border-t border-white/5 text-center text-[10px] text-gray-600 uppercase tracking-[0.3em]">
+            © 2026 PT. Terpal Halimun Jaya Plastik. All Rights Reserved.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6285216919157" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
+
 </body>
 </html>
-</body>
-</html>
+
